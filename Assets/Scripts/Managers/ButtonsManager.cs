@@ -10,9 +10,15 @@ namespace Managers
     {
         public static ButtonsManager instance;
         
-        private List<DisplayButton> _buttons;
+        
+        private List<DisplayButton> _buttons = new List<DisplayButton>();
 
         private PoolManager _poolManager;
+
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void Start()
         {

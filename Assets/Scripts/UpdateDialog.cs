@@ -29,7 +29,7 @@ public class UpdateDialog : DialogBase
     {
         ButtonModel model = new ButtonModel
         {
-            Color = ColorPicker.GetColor(color.value),
+            color = ColorPicker.GetColor(color.value),
             text = inputField.text
         };
 

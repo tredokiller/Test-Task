@@ -72,7 +72,7 @@ public class DisplayButton : MonoBehaviour
     private void UpdateData()
     {
         text.text = ButtonModel.text;
-        image.color = new Color(ButtonModel.Color[0], ButtonModel.Color[1], ButtonModel.Color[2]);
+        image.color = new Color(ButtonModel.color[0], ButtonModel.color[1], ButtonModel.color[2]);
     }
     
     

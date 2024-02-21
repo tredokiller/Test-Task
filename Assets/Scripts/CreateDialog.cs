@@ -28,7 +28,7 @@ public class CreateDialog : DialogBase
     private async void Create()
     {
         ButtonModel model = new ButtonModel();
-        model.Color = ColorPicker.GetColor(color.value);
+        model.color = ColorPicker.GetColor(color.value);
         model.text = inputField.text;
 
         await GameManager.instance.ButtonsController.CreateButton(model);

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Managers;
 using Models;
 using Models.Exceptions;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -27,7 +28,7 @@ namespace Repository
             if (request.result == UnityWebRequest.Result.Success)
             {
                 var response = request.downloadHandler.text;
-                return JsonUtility.FromJson<List<ButtonModel>>(response);
+                return JsonConvert.DeserializeObject<List<ButtonModel>>(response);
             }
 
             throw new BadRequestException(request.error);

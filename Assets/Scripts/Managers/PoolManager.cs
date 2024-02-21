@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,13 +6,20 @@ namespace Managers
 {
     public class PoolManager : MonoBehaviour
     {
+        [SerializeField] private Transform spawnTransform;
+        
         public static PoolManager instance;
 
         [SerializeField] private DisplayButton displayButtonPrefab;
         [SerializeField] private int count;
 
         private readonly List<DisplayButton> _buttons = new List<DisplayButton>();
-    
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
         private void Start()
         {
             FillPool();
@@ -21,7 +29,10 @@ namespace Managers
         {
             for (int i = 0; i < count; i++)
             {
-                _buttons.Add(Instantiate(displayButtonPrefab, transform));
+                var button = Instantiate(displayButtonPrefab, spawnTransform);
+                
+                button.gameObject.SetActive(false);
+                _buttons.Add(button);
             }
         }
 

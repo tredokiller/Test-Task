@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
 
     private ButtonsManager _buttonsManager;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void Init()
     {
         _buttonsManager = ButtonsManager.instance;

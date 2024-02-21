@@ -1,6 +1,4 @@
 using System;
-using Enums;
-using UnityEngine;
 
 namespace Models
 {
@@ -9,6 +7,6 @@ namespace Models
     {
         public string text;
         public bool hasAnimation;
-        public float[] Color { get; set; } 
+        public float[] color { get; set; } 
     }
 }
