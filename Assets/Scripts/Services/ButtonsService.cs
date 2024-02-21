@@ -58,26 +58,26 @@ namespace Services
                 throw new BadRequestException(BadRequestException.WrongIdMessage);
             }
 
-            var type = _buttonsRepository.Get(id);
+            var type = await _buttonsRepository.Get(id);
 
-            if (type.Result == null)
+            if (type == null)
             {
                 throw new NotFoundException();
             }
 
-            await _buttonsRepository.Remove(type.Result);
+            await _buttonsRepository.Remove(type);
         }
 
-        public Task<ButtonModel> UpdateButtonModel(ButtonModel type)
+        public async Task<ButtonModel> UpdateButtonModel(ButtonModel type)
         {
             if (type == null)
             {
                 throw new BadRequestException();
             }
 
-            var response = _buttonsRepository.Update(type).Result;
+            var response =  await _buttonsRepository.Update(type);
 
-            return Task.FromResult(response);
+            return response;
         }
     }
 }

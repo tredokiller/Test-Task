@@ -1,3 +1,4 @@
+using System;
 using Models;
 using TMPro;
 using UnityEngine;
@@ -24,8 +25,16 @@ public class RemoveDialog : DialogBase
     
     private async void Remove()
     {
-        await GameManager.instance.ButtonsController.RemoveButton(int.Parse(inputField.text));
-        
+        try
+        {
+           var id = int.Parse(inputField.text);
+            await GameManager.instance.ButtonsController.RemoveButton(id);
+        }
+        catch (Exception ex)
+        { 
+            // ignored
+        }
+
         Hide();
     }
 }

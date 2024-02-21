@@ -42,7 +42,7 @@ namespace Repository
             if (request.result == UnityWebRequest.Result.Success)
             {
                 var response = request.downloadHandler.text;
-                return JsonUtility.FromJson<ButtonModel>(response);
+                return JsonConvert.DeserializeObject<ButtonModel>(response);
             }
 
             throw new BadRequestException(request.error);
@@ -66,7 +66,7 @@ namespace Repository
                 
                 _buttonsManager.CreateButton(button);
                 
-                return JsonUtility.FromJson<ButtonModel>(response);
+                return JsonConvert.DeserializeObject<ButtonModel>(response);
             }
 
             throw new BadRequestException(request.error);
@@ -90,7 +90,7 @@ namespace Repository
                 
                 _buttonsManager.UpdateButton(button);
                 
-                return JsonUtility.FromJson<ButtonModel>(response);
+                return JsonConvert.DeserializeObject<ButtonModel>(response);
             }
 
             throw new BadRequestException(request.error);
